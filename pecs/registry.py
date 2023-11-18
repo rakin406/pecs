@@ -1,6 +1,4 @@
-"""
-This module contains the Registry class.
-"""
+"""This module contains the Registry class."""
 
 from collections import defaultdict
 import uuid
