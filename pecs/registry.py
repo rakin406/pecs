@@ -119,9 +119,9 @@ class Registry:
         """
 
         if self.all_of(entity, component):
-            self.replace(entity, component)
+            return self.replace(entity, component)
         else:
-            self.emplace(entity, component)
+            return self.emplace(entity, component)
 
     def all_of(self, entity, *components: type) -> bool:
         """
