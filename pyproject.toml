@@ -1,13 +1,21 @@
 [tool.poetry]
 name = "pecs"
 version = "0.1.0"
-description = ""
-authors = ["rakin406"]
+description = "An entity component system (ECS) for Python."
+license = "MIT"
+authors = ["Rakin Rahman <rakinrahman406@gmail.com>"]
 readme = "README.md"
+repository = "https://github.com/rakin406/pecs"
+keywords = [
+    "gamedev", "game-development", "data-oriented-design", "ecs",
+    "entity-component-system"
+]
 
 [tool.poetry.dependencies]
 python = "^3.12"
 
+[tool.poetry.group.test.dependencies]
+pytest = "*"
 
 [build-system]
 requires = ["poetry-core"]
