@@ -1,8 +1,6 @@
 import pytest
 import pecs
 
-# TODO: Fix the pytest ImportError.
-
 
 @pytest.fixture
 def registry():
