@@ -125,7 +125,7 @@ class Registry:
 
     def all_of(self, entity, *components: type) -> bool:
         """
-        Check if entity has all the given components.
+        Verify that entity contains all the component types.
 
         :param entity: Identifier
         :param components: List of components
@@ -140,7 +140,7 @@ class Registry:
 
     def any_of(self, entity, *components: type) -> bool:
         """
-        Check if entity has at least one of the given components.
+        Verify that entity contains at least one of the component types.
 
         :param entity: Identifier
         :param components: List of components
@@ -152,6 +152,21 @@ class Registry:
                 return True
 
         return False
+
+    def none_of(self, entity, *components: type) -> bool:
+        """
+        Verify that entity does not contain any of the component types.
+
+        :param entity: Identifier
+        :param components: List of components
+        :return: boolean
+        """
+
+        count = 0
+        for i in components:
+            if not self.get(entity, i):
+                count += 1
+        return count == len(components)
 
     def remove(self, entity, component: type):
         """
