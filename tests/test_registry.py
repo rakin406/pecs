@@ -22,10 +22,10 @@ class TestRegistry:
 
     def test_destroy(self, registry, entity):
         registry.destroy(entity)
-        assert registry.valid(entity) is False
+        assert not registry.valid(entity)
 
     def test_valid(self, registry, entity):
-        assert registry.valid(entity) is True
+        assert registry.valid(entity)
 
     def test_emplace(self, registry, entity):
         component = Component()
@@ -51,14 +51,14 @@ class TestRegistry:
 
     def test_all_of(self, registry, entity):
         registry.emplace(entity, Component)
-        assert registry.all_of(entity, Component) is True
+        assert registry.all_of(entity, Component)
 
     def test_any_of(self, registry, entity):
         registry.emplace(entity, Component)
-        assert registry.any_of(entity, Component) is True
+        assert registry.any_of(entity, Component)
 
     def test_none_of(self, registry, entity):
-        assert registry.none_of(entity, Component) is True
+        assert registry.none_of(entity, Component)
 
     def test_remove(self, registry, entity):
         registry.emplace(entity, Component)
@@ -67,7 +67,7 @@ class TestRegistry:
 
     def test_clear(self, registry, entity):
         registry.clear()
-        assert registry.valid(entity) is False
+        assert not registry.valid(entity)
 
     def test_get(self, registry, entity):
         registry.emplace(entity, Component)
