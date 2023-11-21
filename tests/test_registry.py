@@ -38,7 +38,7 @@ class TestRegistry:
 
         registry.insert(Component)
         for entity in entities:
-            if not registry.get(entity, Component):
+            if registry.none_of(entity, Component):
                 assert False
 
     def test_replace(self, registry, entity):

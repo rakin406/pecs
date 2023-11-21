@@ -71,8 +71,7 @@ class Registry:
         :return: component
         """
 
-        duplicate = self.get(entity, component)
-        if not duplicate:
+        if self.none_of(entity, component):
             if inspect.isclass(component):
                 self.__entities[entity].append(component())
             elif isinstance(component, object):
