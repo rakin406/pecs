@@ -57,6 +57,9 @@ class TestRegistry:
         registry.emplace(entity, Component)
         assert registry.any_of(entity, Component) is True
 
+    def test_none_of(self, registry, entity):
+        assert registry.none_of(entity, Component) is True
+
     def test_remove(self, registry, entity):
         registry.emplace(entity, Component)
         registry.remove(entity, Component)
