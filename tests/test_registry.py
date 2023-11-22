@@ -13,7 +13,7 @@ def entity(registry):
 
 
 class Component:
-    pass
+    """Dummy component just for testing."""
 
 
 class TestRegistry:

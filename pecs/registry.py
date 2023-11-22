@@ -41,7 +41,7 @@ class Registry:
         self.__entities[identifier] = []
         return identifier
 
-    def destroy(self, entity):
+    def destroy(self, entity: int):
         """
         Destroys an entity and all its components.
 
@@ -53,7 +53,7 @@ class Registry:
         if entity in self.__entities:
             self.__entities.pop(entity, None)
 
-    def valid(self, entity) -> bool:
+    def valid(self, entity: int) -> bool:
         """
         Returns true if the entity is still valid, false otherwise.
 
@@ -62,7 +62,7 @@ class Registry:
         """
         return entity in self.__entities
 
-    def emplace(self, entity, component):
+    def emplace(self, entity: int, component):
         """
         Creates, initializes and assigns to an entity the given component.
 
@@ -90,7 +90,7 @@ class Registry:
         for key in self.__entities:
             self.emplace(key, component)
 
-    def replace(self, entity, component):
+    def replace(self, entity: int, component):
         """
         Constructs a new instance and replaces the component.
 
@@ -107,7 +107,7 @@ class Registry:
                 duplicate = component
             return duplicate
 
-    def emplace_or_replace(self, entity, component):
+    def emplace_or_replace(self, entity: int, component):
         """
         When it's unknown whether an entity already owns an instance of a component, use
         this function instead.
@@ -122,7 +122,7 @@ class Registry:
         else:
             return self.emplace(entity, component)
 
-    def all_of(self, entity, *components: type) -> bool:
+    def all_of(self, entity: int, *components: type) -> bool:
         """
         Verify that entity contains all the component types.
 
@@ -137,7 +137,7 @@ class Registry:
 
         return True
 
-    def any_of(self, entity, *components: type) -> bool:
+    def any_of(self, entity: int, *components: type) -> bool:
         """
         Verify that entity contains at least one of the component types.
 
@@ -152,7 +152,7 @@ class Registry:
 
         return False
 
-    def none_of(self, entity, *components: type) -> bool:
+    def none_of(self, entity: int, *components: type) -> bool:
         """
         Verify that entity does not contain any of the component types.
 
@@ -167,7 +167,7 @@ class Registry:
                 count += 1
         return count == len(components)
 
-    def remove(self, entity, component: type):
+    def remove(self, entity: int, component: type):
         """
         Delete the component from entity if it exists.
 
@@ -197,7 +197,7 @@ class Registry:
         else:
             self.__entities.clear()  # Destroy all entities
 
-    def get(self, entity, component):
+    def get(self, entity: int, component: type):
         """
         Checks for component and if found, returns the component from the entity.
 
